@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('title')Помощь@endsection
 @section('content')
-    @include('layouts.breadcrumb')
+    @include('includes.breadcrumb')
     <!-- ::::::  Start  Main Container Section  ::::::  -->
     <main id="main-container" class="main-container">
         <div class="container">

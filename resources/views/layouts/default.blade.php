@@ -88,81 +88,78 @@
                                             <li class="mega-menu__box">
                                                 <!--Single Megamenu Item Menu-->
                                                 <div class="mega-menu__item-box">
-                                                    <span class="mega-menu__title">Лекарства</span>
+{{--                                                    <span class="mega-menu__title">Лекарства</span>--}}
                                                     <ul class="mega-menu__item">
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Фуфломицин</a></li>
-                                                        <li class="mega-menu__list pos-relative">
-                                                            <a href="shop-sidebar-grid-right.html" class="mega-menu__link">АГаг</a>
-{{--                                                            <span class="menu-label menu-label--red">New</span>--}}
-                                                        </li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Чет еще</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Еще</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">И еще</a></li>
+                                                        @foreach($categories as $category)
+                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">{{$category->name}}</a></li>
+                                                        @endforeach
+
+
                                                     </ul>
                                                 </div>
-                                                <!--Single Megamenu Item Menu-->
+{{--                                                <!--Single Megamenu Item Menu-->--}}
 
-                                                <!--Single Megamenu Item Menu-->
-                                                <div class="mega-menu__item-box">
-                                                    <span class="mega-menu__title">Биологически активные добавки</span>
-                                                    <ul class="mega-menu__item">
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Да</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">ДА</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">дА</a></li>
-                                                        <li class="mega-menu__list pos-relative">
-                                                            <a href="empty-cart.html" class="mega-menu__link">Empty Cart</a>
+{{--                                                <!--Single Megamenu Item Menu-->--}}
+{{--                                                <div class="mega-menu__item-box">--}}
+{{--                                                    <span class="mega-menu__title">Биологически активные добавки</span>--}}
+{{--                                                    <ul class="mega-menu__item">--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Да</a></li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">ДА</a></li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">дА</a></li>--}}
+{{--                                                        <li class="mega-menu__list pos-relative">--}}
+{{--                                                            <a href="empty-cart.html" class="mega-menu__link">Empty Cart</a>--}}
 {{--                                                            <span class="menu-label menu-label--blue">New</span>--}}
-                                                        </li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">ААААА</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">My Account</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Login</a></li>
-                                                    </ul>
-                                                </div>
-                                                <!--Single Megamenu Item Menu-->
+{{--                                                        </li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">ААААА</a></li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">My Account</a></li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Login</a></li>--}}
+{{--                                                    </ul>--}}
+{{--                                                </div>--}}
+{{--                                                <!--Single Megamenu Item Menu-->--}}
 
-                                                <!--Single Megamenu Item Menu-->
-                                                <div class="mega-menu__item-box">
-                                                    <span class="mega-menu__title">Product Single</span>
-                                                    <ul class="mega-menu__item">
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Simple</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Affiliate</a></li>
-                                                        <li class="mega-menu__list pos-relative">
+{{--                                                <!--Single Megamenu Item Menu-->--}}
+{{--                                                <div class="mega-menu__item-box">--}}
+{{--                                                    <span class="mega-menu__title">Product Single</span>--}}
+{{--                                                    <ul class="mega-menu__item">--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Simple</a></li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Affiliate</a></li>--}}
+{{--                                                        <li class="mega-menu__list pos-relative">--}}
 {{--                                                            <a href="product-single-group.html" class="mega-menu__link">Grouped</a>--}}
 {{--                                                            <span class="menu-label menu-label--red">New</span>--}}
-                                                        </li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Variable</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Left Tab</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Right Tab</a></li>
-                                                    </ul>
-                                                </div>
-                                                <!--Single Megamenu Item Menu-->
+{{--                                                        </li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Variable</a></li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Left Tab</a></li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Right Tab</a></li>--}}
+{{--                                                    </ul>--}}
+{{--                                                </div>--}}
+{{--                                                <!--Single Megamenu Item Menu-->--}}
 
-                                                <!--Single Megamenu Item Menu-->
-                                                <div class="mega-menu__item-box">
-                                                    <span class="mega-menu__title">Product Single</span>
-                                                    <ul class="mega-menu__item">
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Single Slider</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Gallery Left</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Gallery Right</a></li>
-                                                        <li class="mega-menu__list"><a href="{{asset('products')}}" class="mega-menu__link">Sticky Left</a></li>
-                                                        <li class="mega-menu__list pos-relative">
-                                                            <a href="{{asset('products')}}" class="mega-menu__link">Sticky Right</a>
+{{--                                                <!--Single Megamenu Item Menu-->--}}
+{{--                                                <div class="mega-menu__item-box">--}}
+{{--                                                    <span class="mega-menu__title">Product Single</span>--}}
+{{--                                                    <ul class="mega-menu__item">--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Single Slider</a></li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Gallery Left</a></li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Gallery Right</a></li>--}}
+{{--                                                        <li class="mega-menu__list"><a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Sticky Left</a></li>--}}
+{{--                                                        <li class="mega-menu__list pos-relative">--}}
+{{--                                                            <a href="{{route('showCategory',$category->code)}}" class="mega-menu__link">Sticky Right</a>--}}
 {{--                                                            <span class="menu-label menu-label--blue">New</span>--}}
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <!--Single Megamenu Item Menu-->
+{{--                                                        </li>--}}
+{{--                                                    </ul>--}}
+{{--                                                </div>--}}
+{{--                                                <!--Single Megamenu Item Menu-->--}}
 
-                                                <!--Single Megamenu Item Menu-->
-                                                <div class="mega-menu__item-box">
-                                                    <ul class="mega-menu__item">
-                                                        <!--Megamenu Item Banner-->
+{{--                                                <!--Single Megamenu Item Menu-->--}}
+{{--                                                <div class="mega-menu__item-box">--}}
+{{--                                                    <ul class="mega-menu__item">--}}
+{{--                                                        <!--Megamenu Item Banner-->--}}
 
-                                                        <!--Megamenu Item Banner-->
-                                                    </ul>
-                                                </div>
-                                                <!--Single Megamenu Item Menu-->
-                                            </li>
+{{--                                                        <!--Megamenu Item Banner-->--}}
+{{--                                                    </ul>--}}
+{{--                                                </div>--}}
+{{--                                                <!--Single Megamenu Item Menu-->--}}
+{{--                                            </li>--}}
 
                                         </ul>
                                         <!-- Megamenu Menu-->

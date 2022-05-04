@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->boolean('is_posted')->default('1')->after('price');
+            $table->foreign('category_id')
+           ->references('id')
+            ->on('categories')
+            ->onDelete('cascade');
         });
     }
 
@@ -26,7 +29,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('is_posted');
+            //
         });
     }
 };

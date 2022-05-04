@@ -2,7 +2,7 @@
 
 
 @section('content')
-    @include('layouts.breadcrumb')
+    @include('includes.breadcrumb')
     <!-- :::::: Start Main Container Wrapper :::::: -->
     <main id="main-container" class="main-container">
         <div class="container">
