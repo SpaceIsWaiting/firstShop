@@ -13,9 +13,7 @@ class Product extends Model
 
     protected $table = 'products';
     protected $guarded = false;
-//    public function images(){
-//        return $this->morphMany(ProductImage::class,'id');
-//    }
+
     public function images()
     {
         return $this->hasMany(ProductImage::class, 'product_id');

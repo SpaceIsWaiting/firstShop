@@ -70,7 +70,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="#" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="/images/{{$image}}" alt="{{$product->name}}">
+                                                    <img class="product__img img-fluid" src="/images/products-grid/{{$image}}" alt="{{$product->name}}" height="400" width="400">
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                 @if($product->new_price!=null)

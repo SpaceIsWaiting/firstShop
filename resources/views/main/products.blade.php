@@ -1,226 +1,23 @@
 @extends('layouts.default')
 
-
+@section('title',$category->name)
 @section('content')
     @include('includes.breadcrumb')
     <!-- :::::: Start Main Container Wrapper :::::: -->
     <main id="main-container" class="main-container">
         <div class="container">
-            <div class="row flex-column-reverse flex-lg-row">
-                <!-- Start Leftside - Sidebar Widget -->
-                <div class="col-lg-3">
-                    <div class="sidebar">
-                        <!-- Start Single Sidebar Widget - Filter [Catagory] -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box">
-                                <h5 class="sidebar__title">PRODUCT CATEGORIES</h5>
-                            </div>
-                            <ul class="sidebar__menu">
-                                <li>
-                                    <ul class="sidebar__menu-collapse">
-                                        <!-- Start Single Menu Collapse List -->
-                                        <li class="sidebar__menu-collapse-list">
-                                            <div class="accordion">
-                                                <a href="#" class="accordion__title collapsed" data-toggle="collapse" data-target="#men-fashion" aria-expanded="false">Men <i class="far fa-chevron-down"></i></a>
-                                                <div id="men-fashion" class="collapse">
-                                                    <ul class="accordion__category-list">
-                                                        <li><a href="#">Dresses</a></li>
-                                                        <li><a href="#">Jackets &amp; Coats</a></li>
-                                                        <li><a href="#">Sweaters</a></li>
-                                                        <li><a href="#">Jeans</a></li>
-                                                        <li><a href="#">Blouses &amp; Shirts</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li> <!-- End Single Menu Collapse List -->
-                                    </ul>
-                                </li>
-                                <li ><a href="#">Football</a></li>
-                                <li ><a href="#"> Men's</a></li>
-                                <li ><a href="#"> Portable Audio</a></li>
-                                <li ><a href="#"> Smart Watches</a></li>
-                                <li ><a href="#">Tennis</a></li>
-                                <li ><a href="#"> Uncategorized</a></li>
-                                <li ><a href="#"> Video Games</a></li>
-                                <li ><a href="#">Women's</a></li>
-                            </ul>
-                        </div>  <!-- End SSingle Sidebar Widget - Filter [Catagory] -->
+            <div class="row">
+                <!-- Start Rightside - Content -->
+                <div class="col-12">
+                    <div class="d-flex justify-content-center">
+                        <ul>
+                           <li><img src="/images/categories/{{$category->image}}" width="300" height="300" alt=""></li>
+                            <li>  <div class="section-content m-b-3 mt-3 justify-content-center">
+                                    <h5 class="section-content__title">{{$category->name}}</h5>
+                                </div></li>
 
-                        <!-- ::::::  Start Single Sidebar Widget - Filter [Size] ::::::  -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box">
-                                <h5 class="sidebar__title">Size</h5>
-                            </div>
-                            <ul class="sidebar__size list-space--small">
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">S</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">M</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">L</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">XL</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">XXL</a></li>
-                            </ul>
-                        </div> <!-- ::::::  Start ingle Sidebar Widget - Filter [Size]  ::::::  -->
+                        </ul>
 
-                        <!-- Start ingle Sidebar Widget - Filter [Color] -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box">
-                                <h5 class="sidebar__title">FILTER BY Color</h5>
-                            </div>
-                            <div class="sidebar__color-filter ">
-                                <label class="product-color"><input type="checkbox" class="product-color-select" value="color-red"><span></span></label>
-                                <label class="product-color"><input type="checkbox" class="product-color-select" value="color-green" checked=""><span></span></label>
-                                <label class="product-color"><input type="checkbox" class="product-color-select" value="color-blue"><span></span></label>
-                            </div>
-                        </div>  <!-- End ingle Sidebar Widget - Filter [Color] -->
-
-                        <!-- Start Single Sidebar Widget - Filter [Gender] -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY Fashion</h5>
-                            </div>
-                            <ul class="sidebar__menu-filter ">
-                                <!-- Start Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="men"><input type="checkbox" name="gender" value="Men" id="men"><span>Men</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="women"><input type="checkbox" name="gender" value="women" id="women"><span>Women</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="kids"><input type="checkbox" name="gender" value="kids" id="kids"><span>Kids</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                            </ul>
-                        </div><!-- End Single Sidebar Widget - Filter [Gender] -->
-
-                        <!-- Start Single Sidebar Widget - Filter [Brand] -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY Brand</h5>
-                            </div>
-                            <ul class="sidebar__menu-filter ">
-                                <!-- Start Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="graphic-corner"><input type="checkbox" name="brand" value="graphic-corner" id="graphic-corner"><span>Graphic Corner</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="studio-design"><input type="checkbox" name="brand" value="studio-design" id="studio-design"><span>Studio Design</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                            </ul>
-                        </div>  <!-- Start Single Sidebar Widget - Filter [Brand] -->
-
-                        <!-- Start Single Sidebar Widget - Filter [Price] -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box">
-                                <h5 class="sidebar__title">FILTER BY Price ($)</h5>
-                            </div>
-                            <div class="sidebar__price-filter ">
-                                <div id="slider-range" class="price-filter-range"></div>
-                                <div class="slider__price-filter-input d-flex justify-content-between">
-                                    <input type="number" min=0 max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" />
-                                    <input type="number" min=0 max="10000" oninput="validity.valid||(value='1000');" id="max_price" class="price-range-field" />
-                                </div>
-                            </div>
-                        </div>  <!-- Start Single Sidebar Widget - Filter [Price] -->
-
-                        <!-- ::::::  Start Sidebar Banner Widget  ::::::  -->
-                        <div class="sidebar__widget">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="sidebar__banner">
-                                        <a href="product-single-default.html" class="banner__link text-center">
-                                            <img class="img-fluid" src="assets/img/banner/size-port/img-sidebar.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- ::::::  End Sidebar Banner Widget  ::::::  -->
-
-                        <!-- ::::::  Start Sidebar Widget - Top Product   ::::::  -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box">
-                                <h5 class="sidebar__title">TOP RATED PRODUCTS</h5>
-                            </div>
-                            <ul class="sidebar__post-product list-space--medium ">
-                                <li  class="d-flex align-items-center">
-                                    <a href="product-single-default.html" class="sidebar__product-img img-responsive">
-                                        <img class="product__img img-fluid" src="assets/img/product/size-small/product-home-1-img-1.jpg" alt="">
-                                    </a>
-                                    <div class="product__content">
-                                        <a href="product-single-default.html" class="product__link">Fresh Eggs</a>
-                                        <ul class="product__review">
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--blank"><i class="icon-star"></i></li>
-                                        </ul>
-                                        <div class="product__price">
-                                            <span class="product__price">$10.00</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li  class="d-flex align-items-center">
-                                    <a href="product-single-default.html" class="sidebar__product-img img-responsive">
-                                        <img class="product__img img-fluid" src="assets/img/product/size-small/product-home-1-img-2.jpg" alt="">
-                                    </a>
-                                    <!-- Start Product Content -->
-                                    <div class="product__content">
-                                        <a href="product-single-default.html" class="product__link">Fresh Fruits</a>
-                                        <ul class="product__review">
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--blank"><i class="icon-star"></i></li>
-                                        </ul>
-                                        <div class="product__price">
-                                            <span class="product__price">$17.00</span>
-                                        </div>
-                                    </div> <!-- End Product Content -->
-                                </li>
-                                <li  class="d-flex align-items-center">
-                                    <a href="product-single-default.html" class="sidebar__product-img img-responsive">
-                                        <img class="product__img img-fluid" src="assets/img/product/size-small/product-home-1-img-3.jpg" alt="">
-                                    </a>
-                                    <!-- Start Product Content -->
-                                    <div class="product__content">
-                                        <a href="product-single-default.html" class="product__link">Natural Juice</a>
-                                        <ul class="product__review">
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--fill"><i class="icon-star"></i></li>
-                                            <li class="product__review--blank"><i class="icon-star"></i></li>
-                                        </ul>
-                                        <div class="product__price">
-                                            <span class="product__price">$25.00</span>
-                                        </div>
-                                    </div> <!-- End Product Content -->
-                                </li>
-                            </ul>
-                        </div> <!-- ::::::  End Sidebar Widget - Top Product  ::::::  -->
-
-                        <!-- ::::::  Start Sidebar Widget - Tag  ::::::  -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box">
-                                <h5 class="sidebar__title">Tags</h5>
-                            </div>
-                            <ul class="sidebar__tag list-space--small">
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">blue</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">gold</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">gray</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">green</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">maroon</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">red</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">white</a></li>
-                            </ul>
-                        </div> <!-- ::::::  Start Sidebar Widget - Tag  ::::::  -->
-                    </div>
-                </div> <!-- End Left Sidebar Widget -->
-
-                <!-- Start Rightside - Product Type View -->
-                <div class="col-lg-9">
-                    <div class="img-responsive">
-                        <img src="assets/img/banner/size-wide/banner-shop-1-img-1-wide.jpg" alt="">
                     </div>
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
                     <div class="sort-box m-tb-40">
@@ -258,7 +55,7 @@
                         <div class="tab-content tab-animate-zoom">
                             <div class="tab-pane show active shop-grid" id="sort-grid">
                                 <div class="row">
-                                    <div class="col-md-4 col-12">
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <!-- Start Single Default Product -->
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
@@ -293,7 +90,7 @@
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
                                     </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <!-- Start Single Default Product -->
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
@@ -328,7 +125,7 @@
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
                                     </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <!-- Start Single Default Product -->
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
@@ -367,7 +164,7 @@
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
                                     </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <!-- Start Single Default Product -->
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
@@ -402,7 +199,7 @@
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
                                     </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <!-- Start Single Default Product -->
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
@@ -437,7 +234,7 @@
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
                                     </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <!-- Start Single Default Product -->
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
@@ -472,7 +269,7 @@
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
                                     </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <!-- Start Single Default Product -->
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
@@ -504,7 +301,7 @@
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
                                     </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <!-- Start Single Default Product -->
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
@@ -539,38 +336,6 @@
                                                 <a href="product-single-default.html" class="product__link">Fresh pomegranate</a>
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">$19.00 <del>$21.00</del></span>
-                                                </div>
-                                            </div> <!-- End Product Content -->
-                                        </div> <!-- End Single Default Product -->
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
-                                        <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
-                                            <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-4.jpg" alt="">
-                                                </a>
-                                                <!-- Start Product Action Link-->
-                                                <ul class="product__action--link pos-absolute">
-                                                    <li><a href="#modalAddCart" data-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
-                                                    <li><a href="#modalQuickView" data-toggle="modal"><i class="icon-eye"></i></a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                            </div> <!-- End Product Image -->
-                                            <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                                <ul class="product__review">
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
-                                                <a href="product-single-default.html" class="product__link">Cabbage vegetables</a>
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">$50.00</span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -753,7 +518,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>  <!-- Start Rightside - Product Type View -->
+                </div>  <!-- Start Rightside - Content -->
             </div>
         </div>
     </main>  <!-- :::::: End MainContainer Wrapper :::::: -->

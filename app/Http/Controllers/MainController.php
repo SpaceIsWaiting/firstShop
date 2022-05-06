@@ -12,14 +12,15 @@ class MainController extends Controller
 {
     public function main()
     {
-        $products = Product::orderBy('created_at')->take(8)->get();
+        $products = Product::where('in_stock',true)->take(8)->get();
 //        $products = Product::find(1);
 //        dd($category->products);
         return view('main.homeContent',compact('products'));
     }
-    public function showCategory($product)
+    public function showCategory($category)
     {
-        return view('main.products');
+        $category = Category::where('code',$category)->first();
+        return view('main.products',compact('category'));
     }
 
     public function cart()
