@@ -13,40 +13,58 @@
                     <div class="col-md-5">
                         <div class="product-gallery-box product-gallery-box--default m-b-60">
                             <div class="product-image--large product-image--large-horizontal">
-                                @php
+{{--                                @php--}}
 
-                                    $image = '';
-                                    if(count($product->images) > 0){
-                                        $image = $product->images;
-                                    }else{
-                                        $image = 'no_img.jpg';
-                                    }
-                                @endphp
-                                @dd($image)
+{{--                                    $image = '';--}}
+{{--                                    if(count($product->images) == 0){--}}
+{{--                                        $image = $product->images;--}}
+{{--                                    }else{--}}
+{{--                                        $image = 'no_img.jpg';--}}
+{{--                                    }--}}
+{{--                                @endphp--}}
+{{--                                @dd($image)--}}
 {{--                                @if($image == 'no_img.jpg')--}}
 {{--                                    <img class="img-fluid" id="img-zoom" src="/images/card-product/{{$img['img']}}"--}}
 {{--                                         data-zoom-image="/images/card-product/{{$img['img']}}" alt="">--}}
 {{--                                @else--}}
-{{--                                    @foreach($product->images as $img)--}}
-{{--                                        @if($loop->first)--}}
-{{--                                            <img class="img-fluid" id="img-zoom" src="/images/card-product/{{$img['img']}}"--}}
-{{--                                                 data-zoom-image="/images/card-product/{{$img['img']}}" alt="" >--}}
-{{--                                        @else--}}
-{{--                            </div>--}}
-{{--                            <div id="gallery-zoom"--}}
-{{--                                 class="product-image--thumb product-image--thumb-horizontal pos-relative">--}}
+
+                                    @foreach($product->images as $img)
+                                        @if($loop->first)
+                                        <img class="img-fluid" id="img-zoom" src="/images/card-product/{{$img['img']}}"
+                                             data-zoom-image="/images/card-product/{{$img['img']}}" alt="" >
+                                        @endif
+                                        @endforeach
 
 
-{{--                                    <a class="zoom-active" data-image="/images/card-product/{{$img['img']}}" data-zoom-image="/images/card-product/{{$img['img']}}">--}}
+                            </div>
+
+                            <div id="gallery-zoom"
+                                 class="product-image--thumb product-image--thumb-horizontal pos-relative">
+                                @foreach($product->images as $img)
+                                    @if($loop->first)
+                                        <a class="zoom-active" data-image="/images/card-product/{{$img['img']}}" data-zoom-image="/images/card-product/{{$img['img']}}">
+                                            <img class="img-fluid" src="/images/card-product/{{$img['img']}}" alt="">
+                                        </a>
+
+                                    @else
+                                        <a data-image="/images/card-product/{{$img['img']}}" data-zoom-image="/images/card-product/{{$img['img']}}">
+                                            <img class="img-fluid" src="/images/card-product/{{$img['img']}}" alt="">
+                                        </a>
+
+                                    @endif
+                                @endforeach
+{{--
+
+
+
+
+
+
+
+                                {{--                                       <a data-image="/images/card-product/{{$img['img']}}" data-zoom-image="/images/card-product/{{$img['img']}}">--}}
 {{--                                        <img class="img-fluid" src="/images/card-product/{{$img['img']}}" alt="">--}}
 {{--                                    </a>--}}
-{{--                                    <a data-image="/images/card-product/{{$img['img']}}" data-zoom-image="/images/card-product/{{$img['img']}}">--}}
-{{--                                        <img class="img-fluid" src="/images/card-product/{{$img['img']}}" alt="">--}}
-{{--                                    </a>--}}
 
-{{--                                @endif--}}
-{{--                                @endforeach--}}
-{{--                                @endif--}}
 
 
 {{--                                    <a data-image="assets/img/product/gallery/gallery-large/product-gallery-large-3.jpg" data-zoom-image="assets/img/product/gallery/gallery-large/product-gallery-large-3.jpg">--}}
@@ -85,7 +103,7 @@
                                 <div class="product__stock m-b-20">
                                     @if($product->in_stock!=0)
                                         <span class="product__stock--in"><i
-                                                class="fas fa-check-circle"></i> В наличии</span>
+                                                class="fas fa-check-circle"></i>В наличии</span>
                                     @else
                                         <span class="product__stock--in">Нет в наличии</span>
                                     @endif

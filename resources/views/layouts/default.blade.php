@@ -615,7 +615,7 @@
                 <div class="col-lg-8 col-md-6 col-12">
                     <!-- Start Footer Copyright Text -->
                     <div class="footer__copyright-text">
-                        <p>&copy;Hades 2022</p>
+                        <p>&copy;Apteka 2022</p>
                     </div> <!-- End Footer Copyright Text -->
                 </div>
                 <div class="col-lg-4 col-md-6 col-12">

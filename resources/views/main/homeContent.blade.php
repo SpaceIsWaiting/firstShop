@@ -58,8 +58,8 @@
                                         @php
 
                                             $image = '';
-                                            if(count($product->images) > 0){
-                                                $image = $product->images[0]['img'];
+                                            if($product->image){
+                                                $image = $product->image;
                                             }else{
                                                 $image = 'no_img.jpg';
                                             }
@@ -68,9 +68,9 @@
                                         <!-- Start Single Default Product -->
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
+                                            <div class="product__img-box  pos-relative" >
                                                 <a href="#" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="/images/products-grid/{{$image}}" alt="{{$product->name}}" height="400" width="400">
+                                                    <img class="product__img img-fluid" src="/images/products-grid/{{$image}}" alt="{{$product->name}}" >
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                 @if($product->new_price!=null)
