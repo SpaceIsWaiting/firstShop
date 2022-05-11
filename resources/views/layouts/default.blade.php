@@ -31,9 +31,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <!-- Use the minified version files listed below for better performance and remove the files listed above -->
-    <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
-    <link rel="stylesheet" href="assets/css/plugin/plugins.min.css"/>
-    <link rel="stylesheet" href="assets/css/main.min.css"> -->
+{{--   <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>--}}
+{{--    <link rel="stylesheet" href="assets/css/plugin/plugins.min.css"/>--}}
+{{--    <link rel="stylesheet" href="assets/css/main.min.css"> --}}
     <link rel="stylesheet" href="{{asset('js/app.js')}}">
     <!-- Main Style CSS File -->
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
@@ -183,8 +183,8 @@
                         <!-- Start Wishlist-AddCart -->
 
                             <ul class="nav-bar-nav header__user-action-icon">
-                                <li nav-item>
-                                    <a href="{{route('cart')}}" class="nav-link">
+                                <li class="nav-item" >
+                                    <a href="{{route('basket')}}" class="nav-link">
                                         <i class="icon-shopping-cart"></i>
                                         {{--                                    <span class="wishlist-item-count pos-absolute">3</span>--}}
                                     </a>
@@ -196,8 +196,12 @@
                                     <i class="icon-users"></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="{{route('registration')}}">Регистрация</a></li>
+                                        <li><a class="dropdown-item" href="{{route('register')}}">Регистрация</a></li>
                                         <li><a class="dropdown-item" href="{{route('login')}}">Авторизация</a></li>
+                                        @auth
+                                            <li><a class="dropdown-item" href="{{route('logout')}}">Выйти</a></li>
+                                        @endauth
+
                                     </ul>
                                 </li> <!-- End Header Wishlist Box -->
                                     <!-- Start Header Wishlist Box -->
@@ -632,7 +636,7 @@
 </footer> <!-- ::::::  End  Footer ::::::  -->
 
 <!-- material-scrolltop button -->
-<button class="material-scrolltop" type="button"></button>
+{{--<button class="material-scrolltop" type="button"></button>--}}
 
 <!-- Start Modal Add cart -->
 <div class="modal fade" id="modalAddCart" tabindex="-1" role="dialog" aria-hidden="true">

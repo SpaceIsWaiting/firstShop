@@ -24,16 +24,40 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($order->products as $product)
+                                @php
+                                    $image = '';
+                                    if($product->image){
+                                        $image = $product->image;
+                                    }else{
+                                        $image = 'no_img.jpg';
+                                    }
+                                @endphp
                             <tr>
                                 <td class="product-thumbnail">
-                                    <a href="#"><img class="img-fluid" src="assets/img/product/size-small/product-home-1-img-1.jpg" alt=""></a>
+                                    <a href="#"><img class="img-fluid" src="/images/products-grid/{{$image}}" alt=""></a>
                                 </td>
-                                <td class="product-name"><a href="#">Product Name</a></td>
-                                <td class="product-price-cart"><span class="amount">$60.00</span></td>
+                                <td class="product-name"><a href="{{route('showProduct',[$product->category_id,$product->id])}}">{{$product->name}}</a></td>
+                                <td class="product-price-cart"><span class="amount">{{$product->price}} Р.</span></td>
                                 <td class="product-quantities">
+
                                     <div class="quantity d-inline-block">
                                         <input type="number" min="1" step="1" value="1">
+                                        <div class="quantity-nav">
+
+                                            <div class="quantity-button quantity-up">
+                                                <form action="{{route('basketAdd',$product)}}" method="POST">
+                                                <a type="submit" href=""><i class="fal fa-plus"></i></a>
+                                                    @csrf
+                                                </form>
+                                            </div>
+                                            <div class="quantity-button quantity-down">
+                                                <a type="submit" href=""><i class="fal fa-minus"></i></a>
+                                            </div>
+                                        </div>
                                     </div>
+
+
                                 </td>
                                 <td class="product-subtotal">$70.00</td>
                                 <td class="product-remove">
@@ -41,40 +65,41 @@
                                     <a href="#"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <a href="#"><img class="img-fluid" src="assets/img/product/size-small/product-home-1-img-2.jpg" alt=""></a>
-                                </td>
-                                <td class="product-name"><a href="#">Product Name</a></td>
-                                <td class="product-price-cart"><span class="amount">$50.00</span></td>
-                                <td class="product-quantities">
-                                    <div class="quantity d-inline-block">
-                                        <input type="number" min="1" step="1" value="1">
-                                    </div>
-                                </td>
-                                <td class="product-subtotal">$80.00</td>
-                                <td class="product-remove">
-                                    <a href="#"><i class="fa fa-pencil-alt"></i></a>
-                                    <a href="#"><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <a href="#"><img class="img-fluid" src="assets/img/product/size-small/product-home-1-img-3.jpg" alt=""></a>
-                                </td>
-                                <td class="product-name"><a href="#">Product Name</a></td>
-                                <td class="product-price-cart"><span class="amount">$70.00</span></td>
-                                <td class="product-quantities">
-                                    <div class="quantity d-inline-block">
-                                        <input type="number" min="1" step="1" value="1">
-                                    </div>
-                                </td>
-                                <td class="product-subtotal">$90.00</td>
-                                <td class="product-remove">
-                                    <a href="#"><i class="fa fa-pencil-alt"></i></a>
-                                    <a href="#"><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
+                            @endforeach
+{{--                            <tr>--}}
+{{--                                <td class="product-thumbnail">--}}
+{{--                                    <a href="#"><img class="img-fluid" src="assets/img/product/size-small/product-home-1-img-2.jpg" alt=""></a>--}}
+{{--                                </td>--}}
+{{--                                <td class="product-name"><a href="#">Product Name</a></td>--}}
+{{--                                <td class="product-price-cart"><span class="amount">$50.00</span></td>--}}
+{{--                                <td class="product-quantities">--}}
+{{--                                    <div class="quantity d-inline-block">--}}
+{{--                                        <input type="number" min="1" step="1" value="1">--}}
+{{--                                    </div>--}}
+{{--                                </td>--}}
+{{--                                <td class="product-subtotal">$80.00</td>--}}
+{{--                                <td class="product-remove">--}}
+{{--                                    <a href="#"><i class="fa fa-pencil-alt"></i></a>--}}
+{{--                                    <a href="#"><i class="fa fa-times"></i></a>--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                            <tr>--}}
+{{--                                <td class="product-thumbnail">--}}
+{{--                                    <a href="#"><img class="img-fluid" src="assets/img/product/size-small/product-home-1-img-3.jpg" alt=""></a>--}}
+{{--                                </td>--}}
+{{--                                <td class="product-name"><a href="#">Product Name</a></td>--}}
+{{--                                <td class="product-price-cart"><span class="amount">$70.00</span></td>--}}
+{{--                                <td class="product-quantities">--}}
+{{--                                    <div class="quantity d-inline-block">--}}
+{{--                                        <input type="number" min="1" step="1" value="1">--}}
+{{--                                    </div>--}}
+{{--                                </td>--}}
+{{--                                <td class="product-subtotal">$90.00</td>--}}
+{{--                                <td class="product-remove">--}}
+{{--                                    <a href="#"><i class="fa fa-pencil-alt"></i></a>--}}
+{{--                                    <a href="#"><i class="fa fa-times"></i></a>--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
                             </tbody>
                         </table>
                     </div>  <!-- End Cart Table -->
@@ -168,8 +193,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <h4 class="grand-total m-tb-25">Grand Total <span>$260.00</span></h4>
-                        <button class="btn btn--box btn--small btn--radius btn--green btn--green-hover-black btn--uppercase font--semi-bold" type="submit">PROCEED TO CHECKOUT</button>
+                        <h4 class="grand-total m-tb-25">Итого: <span>$260.00</span></h4>
+                        <button class="btn btn--box btn--small btn--radius btn--green btn--green-hover-black btn--uppercase font--semi-bold" type="submit">Оформить заказ</button>
                     </div>
                 </div>
             </div>

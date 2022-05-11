@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\MyFirstController;
+//use App\Http\Controllers\MyFirstController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +19,42 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [MainController::class, 'main'])->name('home');
-Route::get('/{cat}', [MainController::class, 'showCategory'])->name('showCategory');
-Route::get('/{cat}/{product_id}', [ProductController::class, 'showProduct'])->name('showProduct');
-Route::get('/cart', [MainController::class, 'cart'])->name('cart');
+Auth::routes([
+    'reset'=>false,
+    'confirm'=>false,
+    'verify'=>false,
+]);
+
+//Регистрация
+Route::name('user.') ->group(function (){
+    Route::view('/private', 'private')->middleware('auth')->name('private');
+    Route::get('/login', function () {
+        if(Auth::check()){
+            return redirect(route('user.private'));
+        }
+        return view('login');
+    })->name('login');
+    Route::post('/login',);
+});
+
 Route::get('/about', [MainController::class, 'about'])->name('about');
 Route::get('/help', [MainController::class, 'help'])->name('help');
-Route::get('/login', [MainController::class, 'login'])->name('login');
-Route::get('/registration', [MainController::class, 'registration'])->name('registration');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+//Route::get('/login', [MainController::class, 'login'])->name('login');
+//Route::get('/registration', [MainController::class, 'registration'])->name('registration');
+
+
+Route::get('/home', [MainController::class, 'main'])->name('home');
+Route::get('/basket', [BasketController::class, 'basket'])->name('basket');
+Route::get('/basket/place', [BasketController::class, 'basketPlace'])->name('basketPlace');
+Route::post('/basket/add/{id}', [BasketController::class, 'basketAdd'])->name('basketAdd');
+Route::post('/basket/remove/{id}', [BasketController::class, 'basketRemove'])->name('basketRemove');
+
+Route::get('/{cat}', [MainController::class, 'showCategory'])->name('showCategory');
+Route::get('/{cat}/{product_id}', [ProductController::class, 'showProduct'])->name('showProduct');
+
+
+
 //Route::get('/', [MyFirstController::class, 'main']);
 //Route::get('/about', [MyFirstController::class, 'about']);
 //Route::get('/sign-in', [MyFirstController::class, 'signIn']);

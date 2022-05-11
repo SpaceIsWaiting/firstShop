@@ -23,10 +23,8 @@ class MainController extends Controller
         return view('main.products',compact('category'));
     }
 
-    public function cart()
-    {
-        return view('main.cart');
-    }
+
+
     public function about()
     {
         return view('main.about');
@@ -37,11 +35,11 @@ class MainController extends Controller
     }
     public function registration()
     {
-        return view('main.register');
+        return view('auth.register');
     }
     public function login()
     {
-        return view('main.login');
+        return view('auth.login');
     }
 
 
